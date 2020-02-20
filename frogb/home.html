@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<h1> Frog Bank 
+
+</h1>
+<style>
+.tablink {
+  background-color: ;
+  color: #32CD32;
+  float: right;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 25%;
+  align: right
+}
+
+.tablink:hover {
+  background-color: #555;
+}
+h1 {background-color: #32CD32;
+text-align:center;}
+</style>
+<button class="tablink" onclick="openCity('London', this, 'red')" id="defaultOpen">Budget</button>
+<button class="tablink" onclick="openCity('Paris', this, 'green')">Calendar</button>
+
+</head>
+
+<body>
+<h2 style="text-align:center, top: 10%"> "Welcome to Frog Bank"</h2>
+
+
+  <img class="pics" src="flight.png" style="width:300px" align="right" padding-top= 30px>
+  <img class="pics" align="right" src="frogwallet.png" style="width:300px" align="right">
+  <img class="pics" src="travelingyouth.png" style="width:300px" align="right" >
+
+
+
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("pics");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}    
+  x[myIndex-1].style.display = "block";  
+  setTimeout(carousel, 5000); 
+}
+</script>
+</body>
