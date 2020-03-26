@@ -1,0 +1,141 @@
+.head_padding
+{
+    margin-left: -8px;
+    float:left;
+}
+.padding{
+    width:-200px;
+    margin: auto;
+}
+.head
+{
+    background: none no-repeat scroll 0 0 #66CDAA;
+    height: 75px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+.head h1   
+{  
+    line-height: 0; 
+    font-family: 'Bebas Neue';
+    color: #F0FFF0;
+    font-size: 60px;
+    text-align: left;
+    margin-left: 200px;
+    margin-bottom: 200px;
+    width: 1000px;
+}
+.fod
+{
+    height:50px;
+    border-radius:5px;
+    background:#E0E0E0;
+}
+.mid
+{
+    margin-top:140px;
+    height:600px;
+    width: 1420px;
+    background:#FFFFFF;
+    /* border-style:solid;
+    border-radius:5px;
+    border-width:2px; */
+    background-image: url("light-blue-watercolor-soft-background_3590-93.jpg");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: 1500px 1000px;
+}
+.left
+{
+    border-radius: 5px 5px 5px 5px;
+    border-style: solid;
+    border-width: 2px;
+    float: left;
+    height: 490px;
+    margin-left: 190px;
+    margin-top: 5px;
+    width: 450px;
+    background-color: beige;
+    background-size: auto;
+}
+.right {
+    border-radius: 5px 5px 5px 5px;
+    border-style: solid;
+    border-width: 2px;
+    height: 489.5px;
+    margin-left: 700px;
+    margin-top: 37.5px;
+    width: 400px;
+    background-color: beige;
+    background-size: auto;
+}
+.far_right{
+
+}
+.bottom
+{
+    border-radius: 5px 5px 5px 5px;
+    border-style: solid;
+    border-width: 2px;
+    height: 100px;
+    margin-top: 50px;
+    margin-left: 190px;
+    width: 1215px;
+}
+body {
+    background-image: url("light-blue-watercolor-soft-background_3590-93.jpg");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: 1500px 1000px;
+}
+h2{
+    font-family: 'Belle Fair';
+    line-height: 0; 
+    font-size: 40px;
+    text-align: left;
+    margin-left: 190px;
+}
+.mission_title{
+    font-family: 'Cinzel Decorative';
+    line-height: 0; 
+    font-size: 20px;
+    text-align: left;
+    margin-left: 0px;
+    margin-top: 20px;
+    color: black;
+}
+.mission{
+    font-family: 'Belle Fair';
+    line-height: 0; 
+    font-size: 16px;
+    text-align: left;
+    margin-left: 0px;
+}
+.msg{
+    font-family: 'Belle Fair';
+    line-height: 0; 
+    font-size: 20px;
+    text-align: center;
+}
+.pics{
+    width:300px;
+    margin-top: 0px;
+    margin-left: 70px;
+}
+.welcome{
+    font-family: 'Cinzel Decorative';
+    line-height: 0; 
+    font-size: 20px;
+    text-align: center;
+    margin-left: 0px;
+    margin-top: 25px;
+    color: #2E8B57;
+}
+.login_msg{
+    font-family: 'Belle Fair';
+    line-height: 0; 
+    font-size: 20px;
+    text-align: center;
+    color: gray;
+}
