@@ -31,7 +31,7 @@
         <p></p>
         trying to stretch your income and exploring our world while 
         <p></p>
-        you’re in your prime.As a result, we come to you with a 
+        you’re in your prime. As a result, we come to you with a 
         <p></p>
         combination of our coding expertise and the financial knowledge of 
         <p></p>
@@ -73,8 +73,9 @@
 
         <label class = "login_form_names" for="psw"><b>Password</b></label>
         <input type="password" placeholder="Enter Password" name="psw" required>
-
-        <button class = "login_btn" type="submit">LOGIN</button>
+        <form action = "user.html">
+          <button class = "login_btn" type="submit">LOGIN</button>
+        </form>
         <!-- <label class = "login_form_names">New User?</label> -->
         <!-- <button class = "login_btn" type="submit">REGISTER</button> -->
         <button class = "login_btn"onclick="document.getElementById('id01').style.display='block'">REGISTER</button>
@@ -83,11 +84,24 @@
             <p class = "welcome">REGISTER</p>
             <div class="container">
               <label class = "login_form_names" for="uname"><b>Username</b></label>
-              <input type="text" placeholder="Enter Username" name="uname" required>
+              <input type="text" placeholder="Enter Username" id="uname" required>
               <label class = "login_form_names" for="psw"><b>Password</b></label>
-              <input type="password" placeholder="Enter Password" name="psw" required>
-              
-              
+              <input type="password" placeholder="Enter Password" id="psw" required>
+              <label class = "login_form_names" for="psw-repeat"><b>Confirm Password</b></label>
+              <input type="password" placeholder="Enter Password Again" id="psw-repeat" required>
+              <script>
+                var password = document.getElementById("psw"), confirm_password = document.getElementById("psw-repeat");
+                function validatePassword(){
+                  if(password.value != confirm_password.value) {
+                    confirm_password.setCustomValidity("Passwords Don't Match");
+                  } else {
+                    confirm_password.setCustomValidity('');
+                  }
+                }
+                password.onchange = validatePassword;
+                confirm_password.onkeyup = validatePassword;
+              </script>
+              <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
               
             </div>
             <div class="container" style="background-color:beige">
