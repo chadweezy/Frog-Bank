@@ -2,7 +2,6 @@ import React from 'react'
 import { Redirect, withRouter } from 'react-router-dom'
 import './Login.css'
 import {Button} from 'react-bootstrap'
-import wordCloud from './wordcloud.jpg'
 import Card from 'react-bootstrap/Card'
 import Form from 'react-bootstrap/Form'
 

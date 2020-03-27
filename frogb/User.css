@@ -1,0 +1,62 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.head_padding
+{
+    margin-left: -8px;
+    float:left;
+}
+.padding{
+    width:-200px;
+    margin: auto;
+}
+.head
+{
+    background: none no-repeat scroll 0 0 #66CDAA;
+    height: 75px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    
+}
+body {
+    background-image: url("1510383.jpg");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: 1450px 1000px;
+}
+li {
+    float: left;
+}
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+
+.head a {
+    float: left;
+    color: #F0FFF0;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 30px;
+    line-height: 25px;
+    border-radius: 4px;
+    font-family: 'Bebas Neue';
+    margin-top: 10px;
+    
+}
+    
+.head a.logo {
+    font-size: 60px;
+    font-weight: bold;
+    margin-left: 189px;
+    margin-top: 15px;
+}

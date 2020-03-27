@@ -1,0 +1,316 @@
+.head_padding
+{
+    margin-left: -8px;
+    float:left;
+}
+.padding{
+    width:-200px;
+    margin: auto;
+}
+.head
+{
+    background: none no-repeat scroll 0 0 #66CDAA;
+    height: 75px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+.head h1   
+{  
+    line-height: 0; 
+    font-family: 'Bebas Neue';
+    color: #F0FFF0;
+    font-size: 60px;
+    text-align: left;
+    margin-left: 200px;
+    margin-bottom: 100px;
+    width: 1000px;
+}
+.fod
+{
+    height:50px;
+    border-radius:5px;
+    background:#E0E0E0;
+}
+.mid
+{
+    margin-top:140px;
+    height:600px;
+    width: 1420px;
+}
+.left
+{
+    border-radius: 5px 5px 5px 5px;
+    border-style: solid;
+    border-width: 2px;
+    float: left;
+    height: 490px;
+    margin-left: 190px;
+    margin-top: 0px;
+    width: 550px;
+    background-color: beige;
+    background-size: auto;
+}
+.right {
+    border-radius: 5px 5px 5px 5px;
+    border-style: solid;
+    border-width: 2px;
+    height: 480px;
+    margin-left: 800px;
+    margin-top: 36px;
+    width: 600px;
+    background-color: beige;
+    background-size: auto;
+}
+.bottom
+{
+    border-radius: 5px 5px 5px 5px;
+    border-style: solid;
+    border-width: 2px;
+    height: 275px;
+    margin-top: 50px;
+    margin-left: 200px;
+    margin-bottom: 10px;
+    width: 1215px;
+    background-color: beige;
+    background-size: auto;
+}
+body {
+    background-image: url("1510383.jpg");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: 1450px 1000px;
+}
+h2{
+    font-family: 'Belle Fair';
+    line-height: 0; 
+    font-size: 40px;
+    text-align: left;
+    margin-left: 190px;
+    margin-top: 0px;
+}
+.mission_title{
+    font-family: 'Cinzel Decorative';
+    line-height: 0; 
+    font-size: 20px;
+    text-align: center;
+    margin-left: 0px;
+    margin-top: 20px;
+    color: black;
+}
+.mission{
+    font-family: 'Belle Fair';
+    line-height: 0; 
+    font-size: 16px;
+    text-align: center;
+    margin-left: 0px;
+}
+.msg{
+    font-family: 'Belle Fair';
+    line-height: 0; 
+    font-size: 20px;
+    text-align: center;
+}
+.pics{
+    width:300px;
+    margin-top: 0px;
+    margin-left: 120px;
+}
+.travel_left{
+    width:300px;
+    height: 200px;
+    margin-top: 0px;
+    margin-left: 100px;
+}
+.travel_pics{
+    width:300px;
+    height: 200px;
+    margin-top: 0px;
+    margin-left: 50px;
+}
+.welcome{
+    font-family: 'Cinzel Decorative';
+    line-height: 0; 
+    font-size: 25px;
+    text-align: center;
+    margin-left: 0px;
+    margin-top: 30px;
+    color: #2E8B57;
+}
+.login_msg{
+    font-family: 'Belle Fair';
+    line-height: 0; 
+    font-size: 20px;
+    text-align: center;
+    color: gray;
+}
+.login_btn{
+    background-color: #66CDAA;
+    border: none;
+    color: #F0FFF0;
+    padding: 17px 30px;
+    width: 217px;
+    margin: 10px auto;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 25px;
+    font-family: 'Bebas Neue';
+}
+.register_btn{
+    background-color: #66CDAA;
+    border: none;
+    color: #F0FFF0;
+    width: 100px;
+    margin-left: 0px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 25px;
+    font-family: 'Bebas Neue';
+}
+.login_form_names{
+    font-family: 'Bebas Neue';
+    font-size: 25px;
+    color: #2E8B57;
+}
+.remember_label{
+    font-family: 'Belle Fair';
+    font-size: 16px;
+    margin-left: 0px;
+}
+.travel{
+    font-family: 'Bebas Neue';
+    line-height: 0; 
+    font-size: 30px;
+    text-align: justify;
+    margin-left: 460px;
+    margin-top: 30px;
+}
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+  
+/* Set a style for all buttons */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+  
+button:hover {
+    opacity: 0.8;
+}
+  
+/* Extra styles for the cancel button */
+.cancelbtn {
+    background-color: rgb(255, 0, 0);
+    border: none;
+    color: rgb(250, 250, 250);
+    width: 100px;
+    margin-left: 0px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 25px;
+    font-family: 'Bebas Neue';
+}
+  
+/* Center the image and position the close button */
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+  
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+  
+.container {
+    padding: 16px;
+}
+  
+span.psw {
+    float: left;
+    padding-top: 0px;
+    margin-left: 20px;
+}
+  
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 50%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    padding-top: 60px;
+    margin-left: 350px;
+}
+  
+/* Modal Content/Box */
+.modal-content {
+    background-color: beige;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+  
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+  
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+  
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+  
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+}
+    
+@keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}
+  
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+}
+
+  

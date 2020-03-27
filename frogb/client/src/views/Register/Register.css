@@ -1,0 +1,24 @@
+.register-error-message {
+    color: red;
+  }
+  
+  .register-button {
+    display: inline-block;
+    padding: 15px 65px;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color:  rgb(148, 235, 135);
+    border: none;
+    border-radius: 8px;
+  }
+  .register_title{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: gray;
+    font-size: 40px;
+  }
+  
+  
