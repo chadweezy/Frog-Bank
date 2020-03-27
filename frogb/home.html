@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title id="pageTitle">FrogBank - Home</title>
+  <title id="pageTitle">FrogBank - Home</title>
   <meta name="description" content="Create an account or log into FrogBank.">
   <link rel = "stylesheet" href = "Home.css">
   <link href='https://fonts.googleapis.com/css?family=Bebas Neue' rel='stylesheet'>
@@ -12,19 +12,14 @@
 <div class="padding">
   <div class="mid">
     <h2>Traveling Made Easier</h2>
-    <!-- <div class="left"> 
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#news">News</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="#about">About</a></li>
-      </ul>
-    </div> -->
     <div class = "left">
-      <div class = "mission_title">
-        Mission Statement
-      </div>
+      <b>
+        <div class = "mission_title">
+          Mission Statement
+        </div>
+      </b>
       <br></br>
+      <b>
       <div class = "mission">
         Frog Bank has been a vison of Ibnat and Edouard’s since 2019.
         <p></p>
@@ -36,13 +31,14 @@
         <p></p>
         trying to stretch your income and exploring our world while 
         <p></p>
-        you’re in your prime.As a result, we come to you with a combination 
+        you’re in your prime.As a result, we come to you with a 
         <p></p>
-        of our coding expertise and the financial knowledge of our 
+        combination of our coding expertise and the financial knowledge of 
         <p></p>
-        predecessors to bring you Frog Bank.
+        our predecessors to bring you Frog Bank.
         <p></p>
       </div>
+    </b>
       <br></br>
       <div class = "msg">
         SAFE TRAVELS!
@@ -70,204 +66,71 @@
       </script>
     </div>
     <div class="right"> 
-      <p class = "welcome">Welcome Back,</p>
-      <p class = "login_msg">Please enter your login information.</p>
-      
-      <script>
-        constructor(props) {
-          super(props);
+      <p class = "welcome">Welcome Back</p>
+      <div class="container">
+        <label class = "login_form_names" for="uname"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="uname" required>
 
-          this.setRoleUser = this.setRoleUser.bind(this);
-          this.setRoleAdmin = this.setRoleAdmin.bind(this);
-          this.onChange = this.onChange.bind(this);
-          this.onSubmit = this.onSubmit.bind(this);
+        <label class = "login_form_names" for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required>
 
-          this.state = {
-            role: '',
-            email: '',
-            password: '',
-            loginError: '',
-            isLoading: false,
-            //redirTo: '/login',
-            forget:false,
-            sent:false,
-            user: {}
-          };
-        }
-
-        //Controls page display based on user actions
-        setRoleUser = () => this.setState({role: 'User'});
-        setRoleAdmin = () => this.setState({role: 'Admin'});
-        resetRole = () => this.setState({role: '', loginError: ''});
-
-        onChange = (e) => this.setState({ [e.target.name]: e.target.value });
-
-        //Logic for forgetting password
-        //TODO: Send an actual email when emailSent() gets called
-        forgetP = () => this.setState({ forget:true });
-        emailSent = () => {
-          this.setState({forget:false})
-          this.setState({sent:true})
-        }
-
-        //Upon submitting a login form, call the appropriate route
-        onSubmit(e) {
-          this.setState({isLoading: true});
-          e.preventDefault();
-
-          const { email, password, role } = this.state;
-          const user = {
-            email,
-            password,
-            role
-          };
-
-          //User login
-          if (role === 'User') {
-            this.props.login('/users/login', user, data => {
-              if (data.success) {
-                this.setState({
-                  email: '',
-                  password: '',
-                  loginError: '',
-                  isLoading: false,
-                  redirTo: "/users"
-                });
-
-              this.props.setUserRole('user');
-              }else {
-                this.setState({
-                  email: '',
-                  password: '',
-                  loginError: 'Incorrect username or password. Please try again.',
-                  isLoading: false,
-                });
-              }
-            });
-          }
-
-          //Vendor login
-          else if (role === 'Admin') {
-            this.props.login('/admins/login', user, data => {
-              if (data.success) {
-                this.setState({
-                  email: '',
-                  password: '',
-                  loginError: '',
-                  isLoading: false,
-                  redirTo: '/admins'
-                });
-                this.props.setUserRole('admin');
-              }else {
-                this.setState({
-                  email: '',
-                  password: '',
-                  loginError: 'Incorrect username or password. Please try again.',
-                  isLoading: false
-                });
-              }
-            })
-          } 
-        }
-        //Render the appropriate input fields
-        render() {
-
-          if (this.props.loggedIn) return <Redirect to={this.state.redirTo}/>;
-          if (this.state.isLoading) return <p>Loading...</p>
-
-          if (!this.state.role) {
-            return (
-              <div>
-                <center>
-                  <h1 className="login">Login Page</h1>
-                  <Button className="loginButton" onClick={this.setRoleUser}>User</Button>
-                  <Button className="loginButton" onClick={this.setRoleVendor}>Vendor</Button>
-                </center>
-              </div>
-            );
-          }
-
-          return (
-            <center>
-              <div className="login-view-container">
-                <div className="login-container">
-                  <div className="login-input-container">
-                    <h3 className="login">{this.state.role} Login</h3>
-                    <br />
-                    {this.state.sent? <p>Check your email to reset Password!</p> : null}
-                    {this.state.forget ?
-                    <Card  style={{backgroundColor: 'lightgreen'}}>
-                      <Card.Header>Forgot Password</Card.Header>
-                      {this.state.notify ?
-                      <Card.Title style={{backgroundColor: 'white'}}> Enter email</Card.Title>:null}
-                      <Card.Body>
-
-                        <Card.Text>
-                          <Form style={{
-                          left:650}}>
-                            <Form.Control placeholder="email@email.com" />
-                            <Button onClick={this.emailSent}>
-                              Submit
-                            </Button>
-                          </Form>
-                        </Card.Text>
-                      </Card.Body>
-                    </Card>
-                    : null}
-                  </div>
-                  {this.state.loginError ? <p>{this.state.loginError}</p> : null}
-                  <form
-                    onSubmit={e => this.onSubmit(e)}
-                    className="login-form-container"
-                  >
-                    <div className="login-input-container">
-                      <label htmlFor="email"></label>
-                      <label>Email: </label>
-                      <div className="col-sm-4">
-                        <input
-                          type="email"
-                          name="email"
-                          placeholder="Enter Email"
-                          required
-                          className="form-control"
-                          value={this.state.email}
-                          onChange={e => this.onChange(e)}
-                        />
-                      </div>
-                    </div>
-                  <div className="login-input-container">
-                    <label htmlFor="password"></label>
-                    <label>Password: </label>
-                    <div className="col-sm-4">
-                      <input
-                        type="password"
-                        name="password"
-                        placeholder="Enter Password"
-                        required
-                        className="form-control"
-                        value={this.state.password}
-                        onChange={e => this.onChange(e)}
-                      />
-                    </div>
-                  </div>
-                  <div className="login-input-container">
-                    <input type="submit" value="Login" className="loginButton" />
-                  </div>
-                  <Button className="loginButton" onClick={this.forgetP}>Forgot password?</Button>
-                  <Button className="loginButton" onClick={this.resetRole.bind(this)}>Return</Button>
-                </form>
-              </div>
+        <button class = "login_btn" type="submit">LOGIN</button>
+        <!-- <label class = "login_form_names">New User?</label> -->
+        <!-- <button class = "login_btn" type="submit">REGISTER</button> -->
+        <button class = "login_btn"onclick="document.getElementById('id01').style.display='block'">REGISTER</button>
+        <div id="id01" class="modal">
+          <form class="modal-content animate" action="/action_page.php" method="post">
+            <p class = "welcome">REGISTER</p>
+            <div class="container">
+              <label class = "login_form_names" for="uname"><b>Username</b></label>
+              <input type="text" placeholder="Enter Username" name="uname" required>
+              <label class = "login_form_names" for="psw"><b>Password</b></label>
+              <input type="password" placeholder="Enter Password" name="psw" required>
+              
+              
+              
             </div>
-          </center>
+            <div class="container" style="background-color:beige">
 
-        );
-      }
+              <button class = "register_btn" type="submit">SIGN UP</button>
+              <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+              
+            </div>
+          </form>
+        </div>
+        
 
+      <script>
+        // Get the modal
+        var modal = document.getElementById('id01');
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        }
       </script>
+
+      <label class = "remember_label">
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+      
+        
+      </div>
+      <span class="psw"><a href="#">Forget password?</a></span>
     </div>
     <div class="bottom">
-      <p>Some top picks for traveling: </p>
-      <a href="http://www.iprofile.net/">Iprofile</a>
+      <p class = "travel">Some top picks for traveling: </p>
+      <a href = "https://www.google.com/travel/things-to-do?g2lb=2502548%2C4258168%2C4260007%2C4270442%2C4274032%2C4291318%2C4305595%2C4306835%2C4308216%2C4317915%2C4326765%2C4328159%2C4329288%2C4330113%2C4333265%2C4356224%2C4358549%2C4362361%2C4363568%2C4365396%2C4366303%2C4270859%2C4284970%2C4291517%2C4316256%2C4356900&hl=en&gl=us&un=1&otf=1&dest_mid=%2Fm%2F05qtj&dest_state_type=main&dest_src=ts&tcfs=EgoKCC9tLzA1cXRq&sa=X&utm_campaign=sharing&utm_medium=link&utm_source=htls#ttdm=48.823203_2.235129_11">
+        <img class="travel_left" src="paris-2017-home.jpeg">
+      </a>
+      <a href = "https://www.google.com/travel/things-to-do?g2lb=2502548%2C4258168%2C4260007%2C4270442%2C4274032%2C4291318%2C4305595%2C4306835%2C4308216%2C4317915%2C4326765%2C4328159%2C4329288%2C4330113%2C4333265%2C4356224%2C4358549%2C4362361%2C4363568%2C4365396%2C4366303%2C4270859%2C4284970%2C4291517%2C4316256%2C4356900&hl=en&gl=us&un=1&otf=1&dest_mid=%2Fm%2F07_pf&dest_state_type=main&dest_src=ts&tcfs=EgoKCC9tLzA3X3Bm&sa=X&utm_campaign=sharing&utm_medium=link&utm_source=htls#ttdm=45.447511_12.371144_12">
+        <img class="travel_pics" src="italy-1200x815.jpg" href="https://www.travelocity.com/">
+      </a>
+      <a href = "https://www.google.com/travel/things-to-do?g2lb=2502548%2C4258168%2C4260007%2C4270442%2C4274032%2C4291318%2C4305595%2C4306835%2C4308216%2C4317915%2C4326765%2C4328159%2C4329288%2C4330113%2C4333265%2C4356224%2C4358549%2C4362361%2C4363568%2C4365396%2C4366303%2C4270859%2C4284970%2C4291517%2C4316256%2C4356900&hl=en&gl=us&un=1&otf=1&dest_mid=%2Fg%2F12lnhn10f&dest_state_type=main&dest_src=ts&tcfs=Eg4KDC9nLzEybG5objEwZg&sa=X&utm_campaign=sharing&utm_medium=link&utm_source=htls#ttdm=35.640148_139.789860_11">
+        <img class="travel_pics" src="tokyo-1024x602.jpg">
+      </a>
     </div>
   </div>
 </div>
@@ -276,6 +139,7 @@
   <h1>
     Frog Bank 
   </h1>
+  
   </div>
   <!-- <div class="fod">
     <div>
