@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+table, td {
+  border: 2px solid black;
+}
+.tab-2{margin-left: 50px}
+			.tab-2 input{display: block;margin-bottom:20px
+			
+
+</style>
+</head>
+<body>
+
+<div>
+<table id="myTable">
+  <tr>
+    <th>item</th>
+    <th>bills</th>
+	<th>amount</th>
+  </tr>
+</table>
+</div>
+<div class="tab tab-2">
+			bill name : <input type="text" name="bill" id="bill">
+			amount : <input type="number" name="amt" id="amt">
+			<p> Which row would you like to delete?</p>
+			delete row : <input type="number" id="deleteindex">
+			<button type="button" onclick="delRow()">Delete</button>
+</div>
+<div align="center" id="cred">
+	   	 
+</div>
+<br>
+
+<button type="button" onclick="credits(),addRow()">Add</button>
+<br> 
+
+<script>
+ 
+    var table = document.getElementById("myTable");
+function addRow() {
+    var cnt = document.getElementById("myTable").rows.length;
+	var bills = document.getElementById("bill").value,
+	  amnt = document.getElementById("amt").value,
+	  indi = cnt;
+	if(bills ===""){
+	alert("bill name not specified");
+	return;}
+	
+	if(amnt <= 0){
+	alert("amount must be positive value");
+	return;}
+    var row = table.insertRow(cnt);
+    var cell0 = row.insertCell(0);
+    var cell1 = row.insertCell(1);
+    var cell2 = row.insertCell(2);
+    
+    cell0.innerHTML = indi;
+    cell1.innerHTML = bills;
+    cell2.innerHTML = amnt;
+}
+
+
+function delRow(){
+	var i = document.getElementById("deleteindex").value;
+	var k = document.getElementById("myTable").rows.length;
+	if(i < 1 ){
+	alert("Item count out of range or not specified");
+	return;}
+	if(i >= k ){
+	alert("Item count out of range, specified value too large");
+	return;}
+    table.deleteRow(i);
+	document.getElementById("bill").value = "";
+	document.getElementById("amt").value = "";
+	
+	for(i=1; i<k; i++){
+	table.rows[i].cells[0].innerHTML = i;
+	}
+}
+<!-- work in progress -->
+function credits(){
+	var total =0;
+	var k = document.getElementById("myTable").rows.length-1;
+	for(i=0; i<k; i++){
+	total = table.rows[2].cells[i+1];
+	}
+	alert(k.innerHTML);
+}
+
+</script>
+
+</body>
+</html>
+
+
