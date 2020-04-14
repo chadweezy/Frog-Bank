@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+table, td {
+  border: 2px solid black;
+  margin-top: 50px
+}
+.tab-2{margin-left: 50px}
+.tab-2 input{display: block;margin-bottom:20px}
+.msg {display: block}
+
+			
+
+</style>
+</head>
+<body>
+
+<div>
+<table id="myTable">
+  <tr>
+    <th>item</th>
+    <th>bills</th>
+	<th>amount</th>
+  </tr>
+</table>
+</div>
+<div class="tab tab-2">
+			bill name : <input type="text" name="bill" id="bill">
+			amount : <input type="number" name="amt" id="amt">
+			<button type="button" onclick="addRow(),credits(), balances()">Add</button>
+			<p> Which row would you like to delete?</p>
+			delete row : <input type="number" id="deleteindex">
+			<button type="button" onclick="delRow()">Delete</button>
+			<br> 
+			
+</div>
+<div align="center" class ="tab tab-2" id="cred">
+		<table id="T2"> 
+		<tr>
+	   	<th> credit(-)</th>
+		<th> debit(+)</th>
+		<th> balance(=)</th>
+		</tr>
+		
+		<tr>
+		<td><input type="text" placeholder="0" id="credit" readonly="readonly"> </td>
+		<td><input type="text" placeholder="0" id="debit" readonly="readonly"></td>
+		<td><input type="text" placeholder="0" id="balance" readonly="readonly"></td>
+		</tr>
+		
+		</table>
+</div>
+
+<div>
+		<table align="right" id="T3"> 
+		<tr>
+		<th> item</th>
+	   	<th> source of income</th>
+		<th> Amount($)</th>
+		</tr>
+		</table>
+</div>
+<div align="right" class ="tab tab-2" id="incoming">
+		
+		income : <input type="text" name="income" id="income">
+		amount : <input type="number" name="amt2" id="amt2">
+		<button type="button" onclick="addIncome(), debits(), balances()">Add income</button>
+		<p> Which row would you like to delete?</p>
+	    delete row : <input type="number" id="deleteincome">
+	    <button type="button" onclick="delIncome(),balances()">Delete Income</button>
+</div>
+
+<br> 
+<div align="center" class="msg">
+<td><input type="text" id="msg" readonly="readonly"></td>
+</div>
+
+<script>
+ 
+    var table = document.getElementById("myTable");
+	var T2 = document.getElementById("T2");
+	var T3 = document.getElementById("T3");
+function addRow() {
+    var cnt = document.getElementById("myTable").rows.length;
+	var bills = document.getElementById("bill").value,
+	  amnt = document.getElementById("amt").value,
+	  indi = cnt;
+	if(bills ===""){
+	alert("bill name not specified");
+	for(i= 1; i<table.rows.length; i++){
+	total = total + parseFloat(table.rows[i].cells[2].innerHTML);} 
+	T2.rows[1].cells[0].innerHTML = total.toFixed(2);
+	return;}
+	
+	if(amnt <= 0){
+	alert("amount must be positive value");
+	for(i= 1; i<table.rows.length; i++){
+	total = total + parseFloat(table.rows[i].cells[2].innerHTML);} 
+	T2.rows[1].cells[0].innerHTML = total.toFixed(2);
+	return;}
+    var row = table.insertRow(cnt);
+    var cell0 = row.insertCell(0);
+    var cell1 = row.insertCell(1);
+    var cell2 = row.insertCell(2);
+    
+    cell0.innerHTML = indi;
+    cell1.innerHTML = bills;
+    cell2.innerHTML = amnt;
+}
+
+function addIncome() {
+    var cnt = document.getElementById("T3").rows.length;
+	var income = document.getElementById("income").value,
+	    amnt = document.getElementById("amt2").value,
+		ind = cnt;
+
+	if(income ===""){
+	alert("income name not specified");
+	for(i= 1; i<T3.rows.length; i++){
+	total = total + parseFloat(T3.rows[i].cells[2].innerHTML);} 
+	T2.rows[1].cells[1].innerHTML = total.toFixed(2);
+	return;}
+	
+	if(amnt <= 0){
+	alert("amount must be positive value");
+	for(i= 1; i<T3.rows.length; i++){
+	total = total + parseFloat(T3.rows[i].cells[2].innerHTML);} 
+	T2.rows[1].cells[1].innerHTML = total.toFixed(2);
+	return;}
+	
+    var row = T3.insertRow(cnt);
+    var cell0 = row.insertCell(0);
+    var cell1 = row.insertCell(1);
+	var cell2 = row.insertCell(2);
+    cell0.innerHTML = ind;
+    cell1.innerHTML = income;
+    cell2.innerHTML = amnt;
+	
+}
+
+function delRow(){
+	var i = document.getElementById("deleteindex").value;
+	var k = document.getElementById("myTable").rows.length;
+	var total, bal;
+	if(i < 1 ){
+	alert("Item count out of range or not specified");
+	return;}
+	if(i >= k ){
+	alert("Item count out of range, specified value too large");
+	return;}
+	total = parseFloat(T2.rows[1].cells[0].innerHTML) - parseFloat(table.rows[i].cells[2].innerHTML);
+	T2.rows[1].cells[0].innerHTML = total.toFixed(2);
+	bal = parseFloat(T2.rows[1].cells[2].innerHTML) + parseFloat(table.rows[i].cells[2].innerHTML);
+	T2.rows[1].cells[2].innerHTML = bal.toFixed(2);
+    table.deleteRow(i);
+	document.getElementById("bill").value = "";
+	document.getElementById("amt").value = "";
+	
+	for(i=1; i<k; i++){
+	table.rows[i].cells[0].innerHTML = i;
+	}
+}
+
+function delIncome(){
+	var i = document.getElementById("deleteincome").value;
+	var k = document.getElementById("T3").rows.length;
+	var total, bal;
+	if(i < 1 ){
+	alert("Item count out of range or not specified");
+	return;}
+	if(i >= k ){
+	alert("Item count out of range, specified value too large");
+	return;}
+	total = parseFloat(T2.rows[1].cells[1].innerHTML) - parseFloat(T3.rows[i].cells[2].innerHTML);
+	T2.rows[1].cells[1].innerHTML = total.toFixed(2);
+	bal = parseFloat(T2.rows[1].cells[2].innerHTML) - parseFloat(T3.rows[i].cells[2].innerHTML);
+	T2.rows[1].cells[2].innerHTML = bal.toFixed(2);
+    T3.deleteRow(i);
+	document.getElementById("income").value = "";
+	document.getElementById("amt2").value = "";
+	
+	for(i=1; i<k; i++){
+	T3.rows[i].cells[0].innerHTML = i;
+	}
+}
+function balances(){
+	var j = document.getElementById("T3").rows.length-1;
+	var k = document.getElementById("myTable").rows.length-1;
+	var total;
+	if(j >= 1 && k >=1){
+	total = parseFloat(T2.rows[1].cells[1].innerHTML)- parseFloat(T2.rows[1].cells[0].innerHTML)
+	T2.rows[1].cells[2].innerHTML = total.toFixed(2);}}
+	
+	
+function credits(){
+	var total =0;
+	var k = document.getElementById("myTable").rows.length-1;
+	if(k === 1){
+	T2.rows[1].cells[0].innerHTML = document.getElementById("amt").value;}
+	
+	if(k>1){
+	for(i= 1; i<table.rows.length; i++){
+	total = total + parseFloat(table.rows[i].cells[2].innerHTML);} 
+	T2.rows[1].cells[0].innerHTML = total.toFixed(2);}
+}
+
+function debits(){
+	var total =0;
+	var k = document.getElementById("T3").rows.length-1;
+	if(k === 1){
+	T2.rows[1].cells[1].innerHTML = document.getElementById("amt2").value;}
+	
+	if(k>1){
+	for(i= 1; i<T3.rows.length; i++){
+	total = total + parseFloat(T3.rows[i].cells[2].innerHTML);} 
+	T2.rows[1].cells[1].innerHTML = total.toFixed(2);}
+	
+}
+
+function display_msg(){
+	var bal = parseFloat(T3.rows[1].cells[2].innerHTML);
+	var income = parseFloat(T3.rows[1].cells[1].innerHTML);
+	var percent = bal/ income;
+	var words;
+	if(bal <= 0){
+	words = "You used all your money, we recoomend cutting back on non-essentials or retrieving another source of income";}
+	else if(percent <0.3){
+	words = "you have 30 percentor less of income remaining. Maybe you should save some.You cna go spending, but mindful";}
+	else if(percent <0.5){
+	words = "Way to go, after paying off your bills you have more than 30%-50% of income remaining. Maybe you should save some";}
+	else{
+	words = "Way to go, after paying off your bills you have more than 30 percent of income remaining. Maybe you should save some";}
+	
+}
+</script>
+
+</body>
+</html>
+
+
