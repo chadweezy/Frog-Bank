@@ -1,82 +1,135 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-
-table, td {
-  border: 2px solid black;
-  margin-top: 50px
-}
-.tab-2{margin-left: 50px}
-.tab-2 input{display: block;margin-bottom:20px}
-.msg {display: block}
-
-			
-
-</style>
+	<title id="pageTitle">FrogBank - Budget</title>
+	<meta name="description" content="Check and change your budget.">
+	<link rel = "stylesheet" href = "budget.css">
+	<link href="home.html" rel="import" />
+	<link href='https://fonts.googleapis.com/css?family=Bebas Neue' rel='stylesheet'>
+	<link href='https://fonts.googleapis.com/css?family=Bellefair' rel='stylesheet'>
+	<link href='https://fonts.googleapis.com/css?family=Cinzel Decorative' rel='stylesheet'>
 </head>
+
 <body>
-
-<div>
-<table id="myTable">
-  <tr>
-    <th>item</th>
-    <th>bills</th>
-	<th>amount</th>
-  </tr>
-</table>
-</div>
-<div class="tab tab-2">
-			bill name : <input type="text" name="bill" id="bill">
-			amount : <input type="number" name="amt" id="amt">
-			<button type="button" onclick="addRow(),credits(), balances()">Add</button>
-			<p> Which row would you like to delete?</p>
-			delete row : <input type="number" id="deleteindex">
-			<button type="button" onclick="delRow()">Delete</button>
-			<br> 
+	<div class = "head_padding">
+		<div class="head">
+		  <a href="home.html" class="logo">Frog Bank</a>
+		  <ul>
+			<!-- <h1><li style="float:left"></li><a class="active" href='home.html'>Frog Bank</a></li></h1> -->
+			<li style="float:right"><a class="active" href='home.html'>Log Out</a></li>
+			<li style="float:right"><a class="active" href='help.html'>Help</a></li>
+			<li style="float:right"><a class="active" href='user.html'>Home</a></li>
+		  </ul>
+		</div>
+	</div>
+	<div class = "padding">
+		<div class = "mid">
+			<div class = "left">
+				<table class = "bills_tab" id="myTable">
+  					<tr>
+    					<th class = bills_title>Item</th>
+   						<th class = bills_title>Bills</th>
+						<th class = bills_title>Amount($)</th>
+  					</tr>
+				</table>
+			</div>
+			<div class = "left">
+				<table class = "bills_tab" id="T3"> 
+					<tr>
+						<th class = bills_title> Item </th>
+						<th class = bills_title> Source of income </th>
+						<th class = bills_title> Amount($) </th>
+					</tr>
+				</table>
+			</div>
+			<div class = "left">
+				<div class ="tab_bottom" id="cred">
+					<table id="T2"> 
+						<tr>
+							<th> Credit(-)</th>
+							<div class = "space"></div>
 			
-</div>
-<div align="center" class ="tab tab-2" id="cred">
-		<table id="T2"> 
-		<tr>
-	   	<th> credit(-)</th>
-		<th> debit(+)</th>
-		<th> balance(=)</th>
-		</tr>
+							<th> Debit(+)</th>
+							<div class = "space"></div>
+			
+							<th> Balance(=)</th>
+							<div class = "space"></div>
+			
+						</tr>
 		
-		<tr>
-		<td><input type="text" placeholder="0" id="credit" readonly="readonly"> </td>
-		<td><input type="text" placeholder="0" id="debit" readonly="readonly"></td>
-		<td><input type="text" placeholder="0" id="balance" readonly="readonly"></td>
-		</tr>
-		
-		</table>
-</div>
+						<tr>
+							<td><input type="text" placeholder="0" id="credit" readonly="readonly"> </td>
+							<td><input type="text" placeholder="0" id="debit" readonly="readonly"></td>
+							<td><input type="text" placeholder="0" id="balance" readonly="readonly"></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class = "left">
+				<div class="msg">
+					<td><input type="text" id="msg" readonly="readonly"></td>
+				</div>
+			</div>
+			<div class = "right">
+				<div class="tab tab-2">
+					<label class = form_title>Bills</label>
+					<div class = "space"></div>
+					<div class = "space"></div>
+					<div class = "space"></div>
+					<div class = "space"></div>
+					<label class = form_label>Bill Name : </label>
+					<input type="text" name="bill" id="bill">
+					<div class = "space"></div>
+					<label class = form_label>Amount : </label>
+					<input type="number" name="amt" id="amt">
+					<!-- <div class = "space"></div> -->
+					<button type="button" onclick="addRow(),credits(), balances()">Add</button>
+					<div class = "space"></div>
+					<div class = "space"></div>
+					<div class = "space"></div>
+					<div class = "space"></div>
+					<label class = form_del> Which row would you like to delete?</label>
+					<div class = "space"></div>
+					<div class = "space"></div>
+					<div class = "space"></div>
+					<div class = "space"></div>
+					<div class = "space"></div>
+					<label class = form_label>Delete Row : </label>
+					<input type="number" id="deleteindex">
+					<button type="button" onclick="delRow()">Delete Bill</button>
+					<br> 
+				</div>
+			</div>
+			<div class = "bottom_right">
+				<label class = form_title>Income</label>
+				<div class ="tab tab-2" id="incoming">
+					<label class = form_label>Income : </label>
+					<input type="text" name="income" id="income">
+					<div class = "space"></div>
+					<label class = form_label>Amount : </label>
+					<input type="number" name="amt2" id="amt2">
+					<button type="button" onclick="addIncome(), debits(), balances()">Add income</button>
+					<div class = "space"></div>
+					<div class = "space"></div>
+					<div class = "space"></div>
+					<div class = "space"></div>
+					<label class = form_del> Which row would you like to delete?</label>
+					<div class = "space"></div>
+					<div class = "space"></div>
+					<div class = "space"></div>
+					<div class = "space"></div>
+					<div class = "space"></div>
+					<label class = form_label>Delete Row : </label> 
+					<input type="number" id="deleteincome">
+	    			<button type="button" onclick="delIncome(),balances()">Delete Income</button>
+				</div>
+				<br>
+			</div> 
+			
+		</div>
+	</div>
 
-<div>
-		<table align="right" id="T3"> 
-		<tr>
-		<th> item</th>
-	   	<th> source of income</th>
-		<th> Amount($)</th>
-		</tr>
-		</table>
-</div>
-<div align="right" class ="tab tab-2" id="incoming">
-		
-		income : <input type="text" name="income" id="income">
-		amount : <input type="number" name="amt2" id="amt2">
-		<button type="button" onclick="addIncome(), debits(), balances()">Add income</button>
-		<p> Which row would you like to delete?</p>
-	    delete row : <input type="number" id="deleteincome">
-	    <button type="button" onclick="delIncome(),balances()">Delete Income</button>
-</div>
-
-<br> 
-<div align="center" class="msg">
-<td><input type="text" id="msg" readonly="readonly"></td>
-</div>
-
+<!-- Functionality -->
 <script>
  
     var table = document.getElementById("myTable");
@@ -225,9 +278,9 @@ function display_msg(){
 	var percent = bal/ income;
 	var words;
 	if(bal <= 0){
-	words = "You used all your money, we recoomend cutting back on non-essentials or retrieving another source of income";}
+	words = "You used all your money, we recommend cutting back on non-essentials or retrieving another source of income";}
 	else if(percent <0.3){
-	words = "you have 30 percentor less of income remaining. Maybe you should save some.You cna go spending, but mindful";}
+	words = "You have 30 percent or less of income remaining. Maybe you should save some.You cna go spending, but mindful";}
 	else if(percent <0.5){
 	words = "Way to go, after paying off your bills you have more than 30%-50% of income remaining. Maybe you should save some";}
 	else{
