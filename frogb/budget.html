@@ -28,7 +28,7 @@
 				<table class = "bills_tab" id="myTable">
   					<tr>
     					<th class = bills_title>Item</th>
-   						<th class = bills_title>Bills</th>
+   						<th class = bills_title>Bill</th>
 						<th class = bills_title>Amount($)</th>
   					</tr>
 				</table>
@@ -37,7 +37,7 @@
 				<table class = "bills_tab" id="T3"> 
 					<tr>
 						<th class = bills_title> Item </th>
-						<th class = bills_title> Source of income </th>
+						<th class = bills_title> Income </th>
 						<th class = bills_title> Amount($) </th>
 					</tr>
 				</table>
@@ -69,6 +69,26 @@
 				<div class="msg">
 					<td><input type="text" id="msg" readonly="readonly"></td>
 				</div>
+			</div>
+			<div class = "left">
+				<label class = currency> Currency Calculator </label>
+				<div class = "curr_msg"> USD not your currency? Traveling somewhere with a different currency? Don't worry!</div>
+				<label class = currencyVal>Value:</label>
+				<input type="text" name="currVal" id="currVal" placeholder="Enter Value">
+				<p></p>
+				<label class = currencyVal>Currency You Want to Convert: </label>
+				<input type="text" name="currFrom" id="currFrom" placeholder="Enter Currency Type">
+				<p></p>
+				<label class = currencyVal>Currency to Convert to: </label>
+				<input type="text" name="currTo" id="currTo" placeholder="Enter Currency Type">
+				<p></p>
+				<button type="button" onclick="currencyConvert()">Convert</button>
+				<!-- <div style="color:red"><script>document.write(currencyConvert())</script></div> -->
+				<table id="currRet">
+					<tr>
+						<th class = currencyVal>Previous Conversions</th>
+					</tr>
+				</table> 
 			</div>
 			<div class = "right">
 				<div class="tab tab-2">
@@ -286,6 +306,78 @@ function display_msg(){
 	else{
 	words = "Way to go, after paying off your bills you have more than 30 percent of income remaining. Maybe you should save some";}
 	
+}
+function currencyConvert(){
+	var cnt = document.getElementById("currRet").rows.length;
+	var val = 0,
+	    currFrom = document.getElementById("currFrom").value,
+		currTo = document.getElementById("currTo").value,
+		symbol = "",
+		currVal = document.getElementById("currVal").value,
+		oldSymbol = "";
+
+	if(currVal ===""){
+		alert("Value not specified");
+		return;
+	}
+	if(currVal <= 0){
+		alert("Amount must be positive value");
+		return;
+	}
+	if(typeof currFrom === 'string' || currFrom instanceof String){
+		if(currFrom === 'USD'){
+			oldSymbol = "$";
+			if(currTo === "EUR"){
+				symbol = "€";
+				val = currVal * 0.92;
+			}
+			else if(currTo === "MXN"){
+				symbol = "$";
+				val = currVal * 24.41;
+			}
+			else if(currTo === "GBP"){
+				symbol = "£";
+				val = currVal * 0.81;
+			}
+			else{
+				alert("Invalid Entry");
+				val = "Invalid Entry";
+			}
+		}else if(currFrom === "GBP"){
+			oldSymbol = "£";
+			if(currTo === "EUR"){
+				symbol = "€";
+				val = currVal * 1.13;
+			}
+			else if(currTo === "USD"){
+				symbol = "$";
+				val = currVal * 1.23;
+			}
+			else if(currTo === "MXN"){
+				symbol = "$";
+				val = currVal * 30;
+			}
+			else{
+				alert("Invalid Entry");
+				val = "Invalid Entry";
+			}
+		}
+	}else{
+		alert("Please enter a valid currency conversion");
+	}
+	
+	
+	var row = currRet.insertRow(cnt);
+    var cell0 = row.insertCell(0);
+	var cell1 = row.insertCell(1);
+	var cell2 = row.insertCell(2);
+	var cell3 = row.insertCell(3);
+	var cell4 = row.insertCell(4);
+	cell0.innerHTML = oldSymbol;
+	cell1.innerHTML = currVal;
+	cell2.innerHTML = "converts to";
+	cell3.innerHTML = symbol;
+    cell4.innerHTML = val;
 }
 </script>
 
