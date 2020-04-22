@@ -25,6 +25,7 @@
 	<div class = "padding">
 		<div class = "mid">
 			<div class = "left">
+				<label class = "tab_title">Debit</label>
 				<table class = "bills_tab" id="myTable">
   					<tr>
     					<th class = bills_title>Item</th>
@@ -34,6 +35,7 @@
 				</table>
 			</div>
 			<div class = "left">
+				<label class = "tab_title">Credit</label>
 				<table class = "bills_tab" id="T3"> 
 					<tr>
 						<th class = bills_title> Item </th>
@@ -43,7 +45,9 @@
 				</table>
 			</div>
 			<div class = "left">
+				<label class = "tab_title">Finances</label>
 				<div class ="tab_bottom" id="cred">
+					
 					<table id="T2"> 
 						<tr>
 							<th> Credit(-)</th>
@@ -66,12 +70,12 @@
 				</div>
 			</div>
 			<div class = "left">
-					<table id = "messagePrint">
+					<table class = "messagePrint" id = "messagePrint">
 						<tr>
-							<th> How You're Doing Economically </th>
+							<th class = "bills_title"> How You're Doing Financially </th>
 						</tr>
 					</table>
-					<button type="button" onclick="display_msg()">Check</button>
+					<button class="budget_button" onclick="display_msg()">Check</button>
 			</div>
 			<div class = "left">
 				<label class = currency> Currency Calculator </label>
@@ -80,12 +84,22 @@
 				<input type="text" name="currVal" id="currVal" placeholder="Enter Value">
 				<p></p>
 				<label class = currencyVal>Currency You Want to Convert: </label>
-				<input type="text" name="currFrom" id="currFrom" placeholder="Enter Currency Type">
+				<!-- <input type="text" name="currFrom" id="currFrom" placeholder="Enter Currency Type"> -->
+				<select id="currFrom">
+					<option value="USD">USD</option>
+					<option value="GBP">GBP</option>
+				</select>
 				<p></p>
 				<label class = currencyVal>Currency to Convert to: </label>
-				<input type="text" name="currTo" id="currTo" placeholder="Enter Currency Type">
+				<!-- <input type="text" name="currTo" id="currTo" placeholder="Enter Currency Type"> -->
+				<select id="currTo">
+					<option value="USD">USD</option>
+					<option value="GBP">GBP</option>
+					<option value="MXN">MXN</option>
+					<option value="EUR">EUR</option>
+				</select>
 				<p></p>
-				<button type="button" onclick="currencyConvert()">Convert</button>
+				<button class = "budget_button" onclick="currencyConvert()">Convert</button>
 				<!-- <div style="color:red"><script>document.write(currencyConvert())</script></div> -->
 				<table class = "currTab" id="currRet">
 					<div class = "space"></div>
@@ -113,7 +127,7 @@
 					<label class = form_label>Amount : </label>
 					<input type="number" name="amt" id="amt">
 					<!-- <div class = "space"></div> -->
-					<button type="button" onclick="addRow(),credits(), balances()">Add</button>
+					<button class = "del_button" onclick="addRow(),credits(), balances()">Add</button>
 					<div class = "space"></div>
 					<div class = "space"></div>
 					<div class = "space"></div>
@@ -126,7 +140,7 @@
 					<div class = "space"></div>
 					<label class = form_label>Delete Row : </label>
 					<input type="number" id="deleteindex">
-					<button type="button" onclick="delRow()">Delete Bill</button>
+					<button class = "del_button" onclick="delRow()">Delete Bill</button>
 					<br> 
 				</div>
 			</div>
@@ -138,7 +152,7 @@
 					<div class = "space"></div>
 					<label class = form_label>Amount : </label>
 					<input type="number" name="amt2" id="amt2">
-					<button type="button" onclick="addIncome(), debits(), balances()">Add income</button>
+					<button class = "del_button" onclick="addIncome(), debits(), balances()">Add income</button>
 					<div class = "space"></div>
 					<div class = "space"></div>
 					<div class = "space"></div>
@@ -151,7 +165,7 @@
 					<div class = "space"></div>
 					<label class = form_label>Delete Row : </label> 
 					<input type="number" id="deleteincome">
-	    			<button type="button" onclick="delIncome(),balances()">Delete Income</button>
+	    			<button class = "del_button" onclick="delIncome(),balances()">Delete Income</button>
 				</div>
 				<br>
 			</div> 
@@ -309,7 +323,7 @@ function display_msg(){
 	var percent = bal/ income;
 	var words = "";
 	if(bal <= 0){
-	words = "You used all your money. We recommend cutting back on non-essentials or retrieving another source of income";}
+		words = "You used all your money. We recommend cutting back on non-essentials or retrieving another source of income";}
 	else if(percent <0.3){
 	words = "You have 30 percent or less of income remaining. Maybe you should cut back your expenses. You can go spending, but be mindful";}
 	else if(percent <0.5){

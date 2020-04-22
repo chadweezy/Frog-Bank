@@ -64,16 +64,16 @@ h2{
 }
 .left
 {
-    border-radius: 5px 5px 5px 5px;
+    border-radius: 10px 10px 10px 10px;
     border-style: solid;
-    border-width: 2px;
+    border-width: 4px;
     float: left;
     height: auto;
     margin-left: 190px;
     margin-top: 0px;
     margin-bottom: 20px;
     width: 550px;
-    background-color: beige;
+    background-color: mintcream;
     background-size: auto;
 }
 table, td {
@@ -98,18 +98,19 @@ table, td {
     float: left;
     font-family: 'Belle Fair';
     font-size: 25px;
+    color: #2E8B57;
 }	
 
 .right {
     border-radius: 5px 5px 5px 5px;
     border-style: solid;
-    border-width: 2px;
-    height: 450px;
+    border-width: 4px;
+    height: 550px;
     margin-left: 800px;
     margin-top: 36px;
     margin-bottom: 10px;
-    width: 300px;
-    background-color: beige;
+    width: 400px;
+    background-color: mintcream;
     background-size: auto;
 }
 .form_label{
@@ -129,19 +130,19 @@ table, td {
 .form_title{
     font-family: 'Bebas Neue';
     font-size: 40px;
-    margin-left: 110px;
+    margin-left: 150px;
     margin-top: 10px;
     color: #2E8B57;
 }
 .bottom_right{
     border-radius: 5px 5px 5px 5px;
     border-style: solid;
-    border-width: 2px;
-    height: 450px;
+    border-width: 4px;
+    height: 550px;
     margin-left: 800px;
     margin-top: 0px;
-    width: 300px;
-    background-color: beige;
+    width: 400px;
+    background-color: mintcream;
     background-size: auto;
 }
 .padding{
@@ -154,6 +155,7 @@ table, td {
     font-size: 16px;
     margin-left: 10px;
     margin-bottom: 35px;
+    margin-top: -20px;
 }
 .income_tab{
     margin-top: 0px;
@@ -201,5 +203,51 @@ table, td {
 }
 .currTab{
     font-family: 'Belle Fair';
-    font-size: 20px;
+    font-size: 16px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+.tab_title{
+    font-family: 'Bebas Neue';
+    font-size: 40px;
+    margin-left: 10px;
+    margin-top: 10px;
+    color: #2E8B57;
+}
+.messagePrint{
+    font-family: 'Belle Fair';
+    font-size: 16px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+.budget_button{
+    background-color: #66CDAA;
+    border: none;
+    color: #F0FFF0;
+    /* padding: 17px 30px; */
+    height: 70px;
+    width: 150px;
+    margin-left: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 25px;
+    font-family: 'Bebas Neue';
+    margin-bottom: 10px;
+}
+.del_button {
+    background-color: #66CDAA;
+    border: none;
+    color: #F0FFF0;
+    /* padding: 17px 30px; */
+    height: 70px;
+    width: 150px;
+    margin-left: 0px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 25px;
+    font-family: 'Bebas Neue';
+    margin-bottom: 10px;
 }
