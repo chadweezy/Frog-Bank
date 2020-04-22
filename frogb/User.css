@@ -26,7 +26,7 @@ body {
     background-image: url("1510383.jpg");
     background-repeat: no-repeat;
     background-attachment: scroll;
-    background-size: 1450px 1000px;
+    background-size: auto;
 }
 li {
     float: left;
@@ -69,7 +69,7 @@ h2{
 /* Month header */
 .month {
     padding: 70px 15px;
-    width: 1395px;
+    width: 97.8%;
     background: beige;
     text-align: center;
     font-family: 'Bebas Neue';
@@ -138,3 +138,16 @@ h2{
     color: white !important
   }
   ul {list-style-type: none;}
+  .register_btn{
+    background-color: rgb(121, 102, 205);
+    border: none;
+    color: #F0FFF0;
+    width: 100px;
+    margin-top: 10px;
+    margin-left: 660px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 25px;
+    font-family: 'Bebas Neue';
+    }
