@@ -66,9 +66,12 @@
 				</div>
 			</div>
 			<div class = "left">
-				<div class="msg">
-					<td><input type="text" id="msg" readonly="readonly"></td>
-				</div>
+					<table id = "messagePrint">
+						<tr>
+							<th> How You're Doing Economically </th>
+						</tr>
+					</table>
+					<button type="button" onclick="display_msg()">Check</button>
 			</div>
 			<div class = "left">
 				<label class = currency> Currency Calculator </label>
@@ -300,19 +303,23 @@ function debits(){
 }
 
 function display_msg(){
-	var bal = parseFloat(T3.rows[1].cells[2].innerHTML);
-	var income = parseFloat(T3.rows[1].cells[1].innerHTML);
+	var cnt = document.getElementById("messagePrint").rows.length;
+	var bal = parseFloat(T2.rows[1].cells[2].innerHTML);
+	var income = parseFloat(T2.rows[1].cells[1].innerHTML);
 	var percent = bal/ income;
-	var words;
+	var words = "";
 	if(bal <= 0){
-	words = "You used all your money, we recommend cutting back on non-essentials or retrieving another source of income";}
+	words = "You used all your money. We recommend cutting back on non-essentials or retrieving another source of income";}
 	else if(percent <0.3){
-	words = "You have 30 percent or less of income remaining. Maybe you should save some.You cna go spending, but mindful";}
+	words = "You have 30 percent or less of income remaining. Maybe you should cut back your expenses. You can go spending, but be mindful";}
 	else if(percent <0.5){
 	words = "Way to go, after paying off your bills you have more than 30%-50% of income remaining. Maybe you should save some";}
 	else{
 	words = "Way to go, after paying off your bills you have more than 30 percent of income remaining. Maybe you should save some";}
-	
+	var row = messagePrint.insertRow(cnt);
+    var cell0 = row.insertCell(0);
+	cell0.innerHTML = words;
+
 }
 function currencyConvert(){
 	var cnt = document.getElementById("currRet").rows.length;
