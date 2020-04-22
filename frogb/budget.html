@@ -38,7 +38,7 @@
 					<tr>
 						<th class = bills_title> Item </th>
 						<th class = bills_title> Income </th>
-						<th class = bills_title> Amount($) </th>
+						<th class = bills_title> Amount </th>
 					</tr>
 				</table>
 			</div>
@@ -58,9 +58,9 @@
 						</tr>
 		
 						<tr>
-							<td><input type="text" placeholder="0" id="credit" readonly="readonly"> </td>
-							<td><input type="text" placeholder="0" id="debit" readonly="readonly"></td>
-							<td><input type="text" placeholder="0" id="balance" readonly="readonly"></td>
+							<td><input type="text" placeholder="Credit" id="credit" readonly="readonly"> </td>
+							<td><input type="text" placeholder="Debit" id="debit" readonly="readonly"></td>
+							<td><input type="text" placeholder="Balance" id="balance" readonly="readonly"></td>
 						</tr>
 					</table>
 				</div>
@@ -84,9 +84,16 @@
 				<p></p>
 				<button type="button" onclick="currencyConvert()">Convert</button>
 				<!-- <div style="color:red"><script>document.write(currencyConvert())</script></div> -->
-				<table id="currRet">
+				<table class = "currTab" id="currRet">
+					<div class = "space"></div>
+					<div class = "space"></div>
+					<label class = "currency">Previous Conversions</label>
 					<tr>
-						<th class = currencyVal>Previous Conversions</th>
+						<th></th>
+						<th class = "currencyVal">Previous Value</th>
+						<th></th>
+						<th></th>
+						<th class = "currencyVal">New Value</th>
 					</tr>
 				</table> 
 			</div>
@@ -377,7 +384,7 @@ function currencyConvert(){
 	cell1.innerHTML = currVal;
 	cell2.innerHTML = "converts to";
 	cell3.innerHTML = symbol;
-    cell4.innerHTML = val;
+    cell4.innerHTML = val.toFixed(2);
 }
 </script>
 

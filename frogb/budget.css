@@ -19,7 +19,7 @@ ul {
     
 }
 body {
-    background-color: aquamarine;
+    background-color: skyblue;
     background-repeat: repeat-y;
     background-attachment: scroll;
     background-size: auto;
@@ -108,7 +108,7 @@ table, td {
     margin-left: 800px;
     margin-top: 36px;
     margin-bottom: 10px;
-    width: 600px;
+    width: 300px;
     background-color: beige;
     background-size: auto;
 }
@@ -119,8 +119,8 @@ table, td {
 }
 .form_del{
     font-family: 'Bebas Neue';
-    font-size: 25px;
-    margin-left: 140px;
+    font-size: 23px;
+    margin-left: 0px;
     color: rgb(139, 46, 46);
 }
 .space{
@@ -129,7 +129,8 @@ table, td {
 .form_title{
     font-family: 'Bebas Neue';
     font-size: 40px;
-    margin-left: 250px;
+    margin-left: 110px;
+    margin-top: 10px;
     color: #2E8B57;
 }
 .bottom_right{
@@ -139,7 +140,7 @@ table, td {
     height: 450px;
     margin-left: 800px;
     margin-top: 0px;
-    width: 600px;
+    width: 300px;
     background-color: beige;
     background-size: auto;
 }
@@ -197,4 +198,8 @@ table, td {
     margin-right: 10px;
     margin-left: 10px;
     color: rgb(46, 139, 119);
+}
+.currTab{
+    font-family: 'Belle Fair';
+    font-size: 20px;
 }
